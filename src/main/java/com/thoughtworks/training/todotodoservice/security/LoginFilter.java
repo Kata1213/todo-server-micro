@@ -27,7 +27,11 @@ public class LoginFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token = request.getHeader(HttpHeaders.AUTHORIZATION);
+        System.out.println("TODO " + token);
+
         User user = userClient.verifyToken(token);
+        System.out.println("TODO " + user);
+
         SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(user, "", ImmutableList.of()));
         filterChain.doFilter(request, response);
 

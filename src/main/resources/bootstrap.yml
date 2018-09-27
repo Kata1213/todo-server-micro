@@ -1,0 +1,3 @@
+user-servive:
+  ribbon:
+    listOfServers: localhost:8082, localhost:8083
